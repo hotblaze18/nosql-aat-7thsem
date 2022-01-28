@@ -1,0 +1,32 @@
+{% extends "layout.html" %} {% block content %}
+<form method="post" action="/updateExport">
+  <input type="hidden" value="{{ data['_id'] }}" name="id" />
+  <div class="form-group">
+    <label for="hscode">HsCode</label>
+    <input type="number" class="form-control" placeholder="Enter hs code" name="hscode" value="{{ data['HSCode'] }}" />
+  </div>
+  <div class="form-group">
+    <label for="commodity">Commodity:</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter commodity"
+      name="commodity"
+      value="{{ data['Commodity'] }}"
+    />
+  </div>
+  <div class="form-group">
+    <label for="value">Value:</label>
+    <input type="number" class="form-control" placeholder="Enter value" name="value" value="{{ data['value'] }}" />
+  </div>
+  <div class="form-group">
+    <label for="country">Country:</label>
+    <input type="text" class="form-control" placeholder="Enter country" name="country" value="{{ data['country'] }}" />
+  </div>
+  <div class="form-group">
+    <label for="year">Year:</label>
+    <input type="text" class="form-control" placeholder="Enter year" name="year" value="{{ data['year'] }}" />
+  </div>
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
+{% endblock %}

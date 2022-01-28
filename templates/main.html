@@ -1,0 +1,36 @@
+{% extends "layout.html" %} {% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>HsCode</th>
+      <th>Commodity</th>
+      <th>Country</th>
+      <th>Value</th>
+      <th>Year</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for export in data %}
+    <tr>
+      <td>{{export["HSCode"]}}</td>
+      <td>{{export["Commodity"]}}</td>
+      <td>{{export["country"]}}</td>
+      <td>{{export["value"]}}</td>
+      <td>{{export["year"]}}</td>
+      <td>
+        <a href="/update?id={{ export['_id'] }}"><button class="btn btn-primary">Update</button></a>
+      </td>
+      <td>
+        <form method="post" action="/delete">
+          <input type="hidden" name="id" value="{{ export['_id'] }}" />
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
